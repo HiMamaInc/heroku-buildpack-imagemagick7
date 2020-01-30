@@ -29,8 +29,8 @@ tar -xvf ImageMagick.tar.gz
 cd ImageMagick-7.0.9-20/
 ./configure --with-heic=yes --with-webp=yes
 make
-make install
-ldconfig /usr/local/lib
+sudo make install
+sudo ldconfig /usr/local/lib
 
 # # identify --version
 # # $ identify -version
