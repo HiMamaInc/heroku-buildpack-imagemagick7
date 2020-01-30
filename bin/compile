@@ -40,27 +40,27 @@
 # Features: Cipher DPC HDRI OpenMP
 # Delegates (built-in): bzlib djvu fontconfig freetype gvc heic jbig jng jpeg # lcms lqr lzma openexr pangocairo png tiff webp wmf x xml zlib
 
-sudo apt-get update
-sudo apt-get install build-essential autoconf libtool git-core
-sudo apt-get build-dep imagemagick libmagickcore-dev libde265 libheif
+apt-get update
+apt-get install build-essential autoconf libtool git-core
+apt-get build-dep imagemagick libmagickcore-dev libde265 libheif
 cd /usr/src/ 
-sudo git clone https://github.com/strukturag/libde265.git  
-sudo git clone https://github.com/strukturag/libheif.git 
+git clone https://github.com/strukturag/libde265.git  
+git clone https://github.com/strukturag/libheif.git 
 cd libde265/ 
-sudo ./autogen.sh 
-sudo ./configure 
-sudo make  
-sudo make install 
+./autogen.sh 
+./configure 
+make  
+make install 
 cd /usr/src/libheif/ 
-sudo ./autogen.sh 
-sudo ./configure 
-sudo make  
-sudo make install 
+./autogen.sh 
+./configure 
+make  
+make install 
 cd /usr/src/ 
-sudo wget https://www.imagemagick.org/download/ImageMagick.tar.gz 
-sudo tar xf ImageMagick.tar.gz 
+wget https://www.imagemagick.org/download/ImageMagick.tar.gz 
+tar xf ImageMagick.tar.gz 
 cd ImageMagick-7*
-sudo ./configure --with-heic=yes 
-sudo make  
-sudo make install  
-sudo ldconfig
+./configure --with-heic=yes 
+make  
+make install  
+ldconfig
