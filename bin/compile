@@ -43,7 +43,7 @@ apt-get update
 apt-get install build-essential autoconf libtool git-core
 apt-get build-dep imagemagick libmagickcore-dev libde265 libheif
 cd /usr/src/ 
-clone https://github.com/strukturag/libde265.git  
+git clone https://github.com/strukturag/libde265.git  
 git clone https://github.com/strukturag/libheif.git 
 cd libde265/ 
 ./autogen.sh 
