@@ -1,0 +1,41 @@
+#!/bin/sh
+
+# $ lsb_release -a
+# No LSB modules are available.
+# Distributor ID:	Ubuntu
+# Description:	Ubuntu 16.04.5 LTS
+# Release:	16.04
+# Codename:	xenial
+
+# $ uname -a
+# Linux xps 4.4.0-134-generic #160-Ubuntu SMP Wed Aug 15 14:58:00 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+
+
+# install base dependencies
+sudo apt-get install libwebp-dev libde265-dev
+
+# install library for reading heif/heic files
+wget https://github.com/strukturag/libheif/archive/v1.3.2.tar.gz
+tar -xvf v1.3.2.tar.gz
+cd libheif-1.3.2/
+./autogen.sh
+./configure
+make
+sudo make install
+
+# install ImageMagick with WEBP and HEIC support
+wget http://www.imagemagick.org/download/ImageMagick.tar.gz
+tar -xvf ImageMagick.tar.gz
+cd ImageMagick-7.0.8-11/
+./configure --with-heic=yes --with-webp=yes
+make
+sudo make install
+sudo ldconfig /usr/local/lib
+
+identify --version
+# $ identify -version
+# Version: ImageMagick 7.0.8-11 Q16 x86_64 2018-09-06 https://www.imagemagick.org
+# Copyright: © 1999-2018 ImageMagick Studio LLC
+# License: https://www.imagemagick.org/script/license.php
+# Features: Cipher DPC HDRI OpenMP
+# Delegates (built-in): bzlib djvu fontconfig freetype gvc heic jbig jng jpeg # lcms lqr lzma openexr pangocairo png tiff webp wmf x xml zlib
