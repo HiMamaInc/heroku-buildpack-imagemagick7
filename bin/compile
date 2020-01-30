@@ -26,7 +26,7 @@ sudo make install
 # install ImageMagick with WEBP and HEIC support
 wget http://www.imagemagick.org/download/ImageMagick.tar.gz
 tar -xvf ImageMagick.tar.gz
-cd ImageMagick-7.0.8-11/
+cd ImageMagick-7.0.9-20/
 ./configure --with-heic=yes --with-webp=yes
 make
 sudo make install
