@@ -1,7 +1,7 @@
 #!/bin/sh
 
-apt-get update
-apt-get build-dep imagemagick libmagickcore-dev libde265 libheif
+sudo apt-get update
+sudo apt-get build-dep imagemagick libmagickcore-dev libde265 libheif
 cd /usr/src/
 git clone https://github.com/strukturag/libde265.git
 git clone https://github.com/strukturag/libheif.git
