@@ -20,6 +20,7 @@ tar xf ImageMagick.tar.gz
 ./configure --with-heic=yes
 make && make install
 ldconfig /usr/local/lib
+export PATH=/usr/local/bin:$PATH
 
 # # $ lsb_release -a
 # # No LSB modules are available.
