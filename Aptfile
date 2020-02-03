@@ -1,0 +1,8 @@
+build-essential
+autoconf
+libtool
+git-core
+imagemagick
+libmagickcore-dev
+libde265
+libheif
