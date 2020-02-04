@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
-
 echo "-----> Install ImageMagick"
 echo "$1"
 echo "$2"
@@ -11,11 +8,13 @@ echo "$ENV_DIR"
 echo "$BUILD_DIR"
 echo
 echo "---------> cd into local bin"
-cd /usr/local/bin
-echo "---------> unzip the image magick binary into usr/local/bin"
-cp  -f /bin/image-magick-7-.tar.gz  /usr/local/bin
-cd /usr/local/bin
-tar -xzvf image-magick-7-.tar.gz
+cd $1
+curl https://github.com/HiMamaInc/heroku-buildpack-imagemagick7/blob/master/bin/image-magick-7-.tar.gz
+# cd /usr/local/bin
+# echo "---------> unzip the image magick binary into usr/local/bin"
+# cp  -f image-magick-7-.tar.gz  /usr/local/bin
+# cd /usr/local/bin
+tar -C /usr/local/bin -xzvf image-magick-7-.tar.gz 
 echo "---------> Adding /usr/local/bin to the front of the path $PATH"
 export PATH=/usr/local/bin:$PATH
 # sudo apt-get update
