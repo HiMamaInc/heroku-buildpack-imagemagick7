@@ -7,10 +7,13 @@ echo "-----> Install ImageMagick"
 echo "$1"
 echo "$2"
 echo "$0"
+echo "ENV_DIR"
+echo
 echo "---------> cd into local bin"
 cd /usr/local/bin
 echo "---------> unzip the image magick binary into usr/local/bin"
-cp  "$0/bin/image-magick-7-.tar.gz" "$1/usr/local/bin"
+cp  -f /bin/image-magick-7-.tar.gz  /usr/local/bin
+cd /usr/local/bin
 tar -xzvf image-magick-7-.tar.gz
 echo "---------> Adding /usr/local/bin to the front of the path $PATH"
 export PATH=/usr/local/bin:$PATH
