@@ -7,9 +7,11 @@ echo "-----> Install ImageMagick"
 # echo "---------> unzip the image magick binary into usr/local/bin"
 mkdir -p "$1/vendor/imagemagick/bin"
 cp -f bin/image-magick-7-.tar.gz "$1/vendor/imagemagick/bin/image-magick-7.tar.gz"
+cp -f bin/image-magick-lib.tar.gz "$1/vendor/imagemagick/bin/image-magick-lib.tar.gz"
 cd "$1/vendor/imagemagick/bin"
 tar -xzvf image-magick-7.tar.gz
-export PATH="$1/vendor/imagemagick/bin/usr/local/bin:$PATH"
+tar -xzvf image-magick-lib.tar.gz
+export PATH="app/vendor/imagemagick/bin/usr/local/bin:$PATH"
 # sudo apt-get update
 # sudo apt-get build-dep imagemagick libmagickcore-dev libde265 libheif
 # cd /usr/src/
