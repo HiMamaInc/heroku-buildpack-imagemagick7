@@ -1,25 +1,37 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-sudo apt-get update
-sudo apt-get build-dep imagemagick libmagickcore-dev libde265 libheif
-cd /usr/src/
-git clone https://github.com/strukturag/libde265.git
-git clone https://github.com/strukturag/libheif.git
-cd libde265/
-./autogen.sh
-./configure
-make && make install
-cd /usr/src/libheif/
-./autogen.sh
-./configure
-make && make install
-cd /usr/src/
-wget https://www.imagemagick.org/download/ImageMagick.tar.gz
-tar xf ImageMagick.tar.gz
-./configure --with-heic=yes
-make && make install
-ldconfig /usr/local/lib
+indent() {
+  sed -u 's/^/       /'
+}
+
+echo "-----> Install ImageMagick"
+
+echo "---------> cd into local bin"
+cd /usr/local/bin
+echo "---------> unzip the image magick binary into usr/local/bin"
+tar -xzvf bin/image-magick-7-.tar.gz /usr/local/bin
+echo "---------> Adding /usr/local/bin to the front of the path $PATH"
 export PATH=/usr/local/bin:$PATH
+# sudo apt-get update
+# sudo apt-get build-dep imagemagick libmagickcore-dev libde265 libheif
+# cd /usr/src/
+# git clone https://github.com/strukturag/libde265.git
+# git clone https://github.com/strukturag/libheif.git
+# cd libde265/
+# ./autogen.sh
+# ./configure
+# make && make install
+# cd /usr/src/libheif/
+# ./autogen.sh
+# ./configure
+# make && make install
+# cd /usr/src/
+# wget https://www.imagemagick.org/download/ImageMagick.tar.gz
+# tar xf ImageMagick.tar.gz
+# ./configure --with-heic=yes
+# make && make install
+# ldconfig /usr/local/lib
+# export PATH=/usr/local/bin:$PATH
 
 # # $ lsb_release -a
 # # No LSB modules are available.
