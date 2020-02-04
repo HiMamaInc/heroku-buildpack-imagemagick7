@@ -1,13 +1,12 @@
-#!/bin/bash
-
+#!/usr/local/bin bash
 echo "-----> Install ImageMagick"
 
 # cd $1
 # curl https://github.com/HiMamaInc/heroku-buildpack-imagemagick7/blob/master/bin/image-magick-7-.tar.gz
 # cd /usr/local/bin
 # echo "---------> unzip the image magick binary into usr/local/bin"
-cp bin/image-magick-7-.tar.gz /usr/local/bin/image-magick-7.tar.gz
-cd "$1/usr/local/bin"
+cp -f bin/image-magick-7-.tar.gz /usr/local/bin/image-magick-7.tar.gz
+cd /usr/local/bin
 tar -xzvf image-magick-7.tar.gz
 echo "---------> Adding /usr/local/bin to the front of the path $PATH"
 export PATH=/usr/local/bin:$PATH
