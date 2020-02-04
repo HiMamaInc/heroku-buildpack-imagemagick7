@@ -11,7 +11,7 @@ cp -f bin/image-magick-lib.tar.gz "$1/vendor/imagemagick/bin/image-magick-lib.ta
 cd "$1/vendor/imagemagick/bin"
 tar -xzvf image-magick-7.tar.gz
 tar -xzvf image-magick-lib.tar.gz
-export PATH="app/vendor/imagemagick/bin/usr/local/bin:$PATH"
+export PATH=app/vendor/imagemagick/bin/usr/local/bin:$PATH
 # sudo apt-get update
 # sudo apt-get build-dep imagemagick libmagickcore-dev libde265 libheif
 # cd /usr/src/
