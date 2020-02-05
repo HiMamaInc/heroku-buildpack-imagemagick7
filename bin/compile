@@ -14,11 +14,12 @@ tar -xzvf image-magick-lib.tar.gz
 # update PATH and LD_LIBRARY_PATH
 echo "-----> Updating environment variables"
 PROFILE_PATH="$1/.profile.d/imagemagick.sh"
-ACTUAL_INSTALL_PATH="$HOME/vendor/imagemagick"
+ACTUAL_INSTALL_PATH="$HOME/vendor/imagemagick/usr/local"
 mkdir -p $(dirname $PROFILE_PATH)
 echo "export PATH=$ACTUAL_INSTALL_PATH/bin:\$PATH" >> $PROFILE_PATH
 echo "export LD_LIBRARY_PATH=$ACTUAL_INSTALL_PATH/lib:\$LD_LIBRARY_PATH:/usr/local/lib" >> $PROFILE_PATH
-echo "export MAGICK_CONFIGURE_PATH=$ACTUAL_INSTALL_PATH" >> $PROFILE_PATH# export  app/vendor/imagemagick/bin/usr/local/lib
+echo "export MAGICK_CONFIGURE_PATH=$ACTUAL_INSTALL_PATH" >> $PROFILE_PATH
+# export  app/vendor/imagemagick/bin/usr/local/lib
 # export PATH=/app/vendor/imagemagick/usr/local/bin:$PATH
 # sudo apt-get update
 # sudo apt-get build-dep imagemagick libmagickcore-dev libde265 libheif
