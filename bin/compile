@@ -21,27 +21,27 @@ mkdir -p "$1/vendor/imagemagick"
 # echo "export MAGICK_CONFIGURE_PATH=$ACTUAL_INSTALL_PATH" >> $PROFILE_PATH
 # export  app/vendor/imagemagick/bin/usr/local/lib
 # export PATH=/app/vendor/imagemagick/usr/local/bin:$PATH
-cd "$1/vendor/imagemagick"
-apt-get update
-apt-get build-dep imagemagick libmagickcore-dev libde265 libheif
-cd /usr/src/
-git clone https://github.com/strukturag/libde265.git
-git clone https://github.com/strukturag/libheif.git
-cd libde265/
-./autogen.sh
-./configure
-make && make install
-cd /usr/src/libheif/
-./autogen.sh
-./configure
-make && make install
-cd /usr/src/
-wget https://www.imagemagick.org/download/ImageMagick.tar.gz
-tar xf ImageMagick.tar.gz
-./configure --with-heic=yes
-make && make install
-ldconfig app/vendor/imagemagick/bin/usr/local/lib
-export PATH=/app/vendor/imagemagick/usr/local/bin:$PATH
+# cd "$1/vendor/imagemagick"
+# apt-get update
+# apt-get build-dep imagemagick libmagickcore-dev libde265 libheif
+# cd /usr/src/
+# git clone https://github.com/strukturag/libde265.git
+# git clone https://github.com/strukturag/libheif.git
+# cd libde265/
+# ./autogen.sh
+# ./configure
+# make && make install
+# cd /usr/src/libheif/
+# ./autogen.sh
+# ./configure
+# make && make install
+# cd /usr/src/
+# wget https://www.imagemagick.org/download/ImageMagick.tar.gz
+# tar xf ImageMagick.tar.gz
+# ./configure --with-heic=yes
+# make && make install
+# ldconfig app/vendor/imagemagick/bin/usr/local/lib
+# export PATH=/app/vendor/imagemagick/usr/local/bin:$PATH
 
 # # $ lsb_release -a
 # # No LSB modules are available.
