@@ -6,8 +6,7 @@ echo "-----> Install ImageMagick"
 # cd /usr/local/bin
 # echo "---------> unzip the image magick binary into usr/local/bin"
 mkdir -p "$1/vendor/imagemagick"
-cp -f bin/image-magick-7-.tar.gz "$1/vendor/imagemagick/image-magick-7.tar.gz"
-cp -f bin/image-magick-lib.tar.gz "$1/vendor/imagemagick/image-magick-lib.tar.gz"
+cp -f bin/imagemagick-7-0-9-21-binary-archive.tar.gz "$1/vendor/imagemagick-7-0-9-21-binary-archive.tar.gz"
 cd "$1/vendor/imagemagick"
 tar -xzvf imagemagick-7-0-9-21-binary-archive.tar.gz
 # update PATH and LD_LIBRARY_PATH
