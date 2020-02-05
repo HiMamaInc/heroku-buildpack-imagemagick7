@@ -21,6 +21,7 @@ echo "export MAGICK_CONFIGURE_PATH=$ACTUAL_INSTALL_PATH" >> $PROFILE_PATH
 export PATH=/app/vendor/imagemagick/usr/local/bin:$PATH
 # cd "$1/vendor/imagemagick"
 # apt-get update
+# apt-get install build-essential autoconf libtool git-core
 # apt-get build-dep imagemagick libmagickcore-dev libde265 libheif
 # cd /usr/src/
 # git clone https://github.com/strukturag/libde265.git
