@@ -15,10 +15,11 @@ PROFILE_PATH="$1/.profile.d/imagemagick.sh"
 ACTUAL_INSTALL_PATH="$HOME/vendor/imagemagick/usr/local"
 mkdir -p $(dirname $PROFILE_PATH)
 echo "export PATH=$ACTUAL_INSTALL_PATH/bin:\$PATH" >> $PROFILE_PATH
-echo "export LD_LIBRARY_PATH=$ACTUAL_INSTALL_PATH/lib:\$LD_LIBRARY_PATH:/usr/local/lib" >> $PROFILE_PATH
+echo "export LD_LIBRARY_PATH=$ACTUAL_INSTALL_PATH/lib::\$LD_LIBRARY_PATH:/usr/local/lib" >> $PROFILE_PATH
 echo "export MAGICK_CONFIGURE_PATH=$ACTUAL_INSTALL_PATH" >> $PROFILE_PATH
 # export  app/vendor/imagemagick/bin/usr/local/lib
 export PATH=/app/vendor/imagemagick/usr/local/bin:$PATH
+ldconfig
 # cd "$1/vendor/imagemagick"
 # apt-get update
 # apt-get install build-essential autoconf libtool git-core
