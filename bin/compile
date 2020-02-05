@@ -5,13 +5,21 @@ echo "-----> Install ImageMagick"
 # curl https://github.com/HiMamaInc/heroku-buildpack-imagemagick7/blob/master/bin/image-magick-7-.tar.gz
 # cd /usr/local/bin
 # echo "---------> unzip the image magick binary into usr/local/bin"
-mkdir -p "$1/vendor/imagemagick/bin"
-cp -f bin/image-magick-7-.tar.gz "$1/vendor/imagemagick/bin/image-magick-7.tar.gz"
-cp -f bin/image-magick-lib.tar.gz "$1/vendor/imagemagick/bin/image-magick-lib.tar.gz"
-cd "$1/vendor/imagemagick/bin"
+mkdir -p "$1/vendor/imagemagick"
+cp -f bin/image-magick-7-.tar.gz "$1/vendor/imagemagick/image-magick-7.tar.gz"
+cp -f bin/image-magick-lib.tar.gz "$1/vendor/imagemagick/image-magick-lib.tar.gz"
+cd "$1/vendor/imagemagick"
 tar -xzvf image-magick-7.tar.gz
 tar -xzvf image-magick-lib.tar.gz
-export PATH=app/vendor/imagemagick/bin/usr/local/bin:$PATH
+# update PATH and LD_LIBRARY_PATH
+echo "-----> Updating environment variables"
+PROFILE_PATH="$1/.profile.d/imagemagick.sh"
+ACTUAL_INSTALL_PATH="$HOME/vendor/imagemagick"
+mkdir -p $(dirname $PROFILE_PATH)
+echo "export PATH=$ACTUAL_INSTALL_PATH/bin:\$PATH" >> $PROFILE_PATH
+echo "export LD_LIBRARY_PATH=$ACTUAL_INSTALL_PATH/lib:\$LD_LIBRARY_PATH:/usr/local/lib" >> $PROFILE_PATH
+echo "export MAGICK_CONFIGURE_PATH=$ACTUAL_INSTALL_PATH" >> $PROFILE_PATH# export  app/vendor/imagemagick/bin/usr/local/lib
+# export PATH=/app/vendor/imagemagick/usr/local/bin:$PATH
 # sudo apt-get update
 # sudo apt-get build-dep imagemagick libmagickcore-dev libde265 libheif
 # cd /usr/src/
