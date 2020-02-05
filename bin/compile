@@ -9,16 +9,15 @@ mkdir -p "$1/vendor/imagemagick"
 cp -f bin/imagemagick-7-0-9-21-binary-archive.tar.gz "$1/vendor/imagemagick/imagemagick-7-0-9-21-binary-archive.tar.gz"
 cd "$1/vendor/imagemagick"
 tar -xzvf imagemagick-7-0-9-21-binary-archive.tar.gz
-# update PATH and LD_LIBRARY_PATH
-# echo "-----> Updating environment variables"
-# PROFILE_PATH="$1/.profile.d/imagemagick.sh"
-# ACTUAL_INSTALL_PATH="$HOME/vendor/imagemagick/usr/local"
-# mkdir -p $(dirname $PROFILE_PATH)
-# echo "export PATH=$ACTUAL_INSTALL_PATH/bin:\$PATH" >> $PROFILE_PATH
-# echo "export LD_LIBRARY_PATH=$ACTUAL_INSTALL_PATH/lib::\$LD_LIBRARY_PATH:/usr/local/lib" >> $PROFILE_PATH
-# echo "export MAGICK_CONFIGURE_PATH=$ACTUAL_INSTALL_PATH" >> $PROFILE_PATH
-export LD_LIBRARY_PATH=app/vendor/imagemagick/bin/usr/local/lib::$LD_LIBRARY_PATH
-export PATH=/app/vendor/imagemagick/usr/local/bin:$PATH
+update PATH and LD_LIBRARY_PATH
+echo "-----> Updating environment variables"
+PROFILE_PATH="$1/.profile.d/imagemagick.sh"
+ACTUAL_INSTALL_PATH="$HOME/vendor/imagemagick/usr/local"
+mkdir -p $(dirname $PROFILE_PATH)
+echo "export PATH=$ACTUAL_INSTALL_PATH/bin:\$PATH" >> $PROFILE_PATH
+echo "export LD_LIBRARY_PATH=$ACTUAL_INSTALL_PATH/lib::\$LD_LIBRARY_PATH:/usr/local/lib" >> $PROFILE_PATH
+echo "export MAGICK_CONFIGURE_PATH=$ACTUAL_INSTALL_PATH" >> $PROFILE_PATH
+# export PATH=/app/vendor/imagemagick/usr/local/bin:$PATH
 # ldconfig "$1/vendor/imagemagick/bin/usr/local/lib"
 # cd "$1/vendor/imagemagick"
 # apt-get update
