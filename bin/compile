@@ -6,21 +6,20 @@ echo "-----> Install ImageMagick"
 # cd /usr/local/bin
 # echo "---------> unzip the image magick binary into usr/local/bin"
 mkdir -p "$1/vendor/imagemagick"
-# cp -f bin/image-magick-7-.tar.gz "$1/vendor/imagemagick/image-magick-7.tar.gz"
-# cp -f bin/image-magick-lib.tar.gz "$1/vendor/imagemagick/image-magick-lib.tar.gz"
-# cd "$1/vendor/imagemagick"
-# tar -xzvf image-magick-7.tar.gz
-# tar -xzvf image-magick-lib.tar.gz
-# # update PATH and LD_LIBRARY_PATH
-# echo "-----> Updating environment variables"
-# PROFILE_PATH="$1/.profile.d/imagemagick.sh"
-# ACTUAL_INSTALL_PATH="$HOME/vendor/imagemagick/usr/local"
-# mkdir -p $(dirname $PROFILE_PATH)
-# echo "export PATH=$ACTUAL_INSTALL_PATH/bin:\$PATH" >> $PROFILE_PATH
-# echo "export LD_LIBRARY_PATH=$ACTUAL_INSTALL_PATH/lib:\$LD_LIBRARY_PATH:/usr/local/lib" >> $PROFILE_PATH
-# echo "export MAGICK_CONFIGURE_PATH=$ACTUAL_INSTALL_PATH" >> $PROFILE_PATH
+cp -f bin/image-magick-7-.tar.gz "$1/vendor/imagemagick/image-magick-7.tar.gz"
+cp -f bin/image-magick-lib.tar.gz "$1/vendor/imagemagick/image-magick-lib.tar.gz"
+cd "$1/vendor/imagemagick"
+tar -xzvf imagemagick-7-0-9-21-binary-archive.tar.gz
+# update PATH and LD_LIBRARY_PATH
+echo "-----> Updating environment variables"
+PROFILE_PATH="$1/.profile.d/imagemagick.sh"
+ACTUAL_INSTALL_PATH="$HOME/vendor/imagemagick/usr/local"
+mkdir -p $(dirname $PROFILE_PATH)
+echo "export PATH=$ACTUAL_INSTALL_PATH/bin:\$PATH" >> $PROFILE_PATH
+echo "export LD_LIBRARY_PATH=$ACTUAL_INSTALL_PATH/lib:\$LD_LIBRARY_PATH:/usr/local/lib" >> $PROFILE_PATH
+echo "export MAGICK_CONFIGURE_PATH=$ACTUAL_INSTALL_PATH" >> $PROFILE_PATH
 # export  app/vendor/imagemagick/bin/usr/local/lib
-# export PATH=/app/vendor/imagemagick/usr/local/bin:$PATH
+export PATH=/app/vendor/imagemagick/usr/local/bin:$PATH
 # cd "$1/vendor/imagemagick"
 # apt-get update
 # apt-get build-dep imagemagick libmagickcore-dev libde265 libheif
@@ -38,7 +37,8 @@ mkdir -p "$1/vendor/imagemagick"
 # cd /usr/src/
 # wget https://www.imagemagick.org/download/ImageMagick.tar.gz
 # tar xf ImageMagick.tar.gz
-# ./configure --with-heic=yes
+# cd ImageMagick-7*
+# ./configure --with-heic=yes --without-gvc
 # make && make install
 # ldconfig app/vendor/imagemagick/bin/usr/local/lib
 # export PATH=/app/vendor/imagemagick/usr/local/bin:$PATH
