@@ -23,18 +23,19 @@ cd "$1/vendor/imagemagick"
 apt-get update
 apt-get install build-essential autoconf libtool git-core
 apt-get build-dep imagemagick libmagickcore-dev libde265 libheif
-cd /usr/src/
+mkdir -p "$1/vendor/imagemagick/usr/src"
+cd "$1/vendor/imagemagick/usr/src"
 git clone https://github.com/strukturag/libde265.git
 git clone https://github.com/strukturag/libheif.git
 cd libde265/
 ./autogen.sh
 ./configure
 make && make install
-cd /usr/src/libheif/
+cd ../libheif/
 ./autogen.sh
 ./configure
 make && make install
-cd /usr/src/
+cd "$1/vendor/imagemagick/usr/src"
 wget https://www.imagemagick.org/download/ImageMagick.tar.gz
 tar xf ImageMagick.tar.gz
 cd ImageMagick-7*
