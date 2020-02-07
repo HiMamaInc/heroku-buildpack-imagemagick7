@@ -6,42 +6,42 @@ echo "-----> Install ImageMagick"
 # cd /usr/local/bin
 # echo "---------> unzip the image magick binary into usr/local/bin"
 mkdir -p "$1/vendor/imagemagick"
-cp -f bin/imagemagick-7-0-9-21-binary-archive.tar.gz "$1/vendor/imagemagick/imagemagick-7-0-9-21-binary-archive.tar.gz"
-cd "$1/vendor/imagemagick"
-tar -xzvf imagemagick-7-0-9-21-binary-archive.tar.gz
-# update PATH and LD_LIBRARY_PATH
-echo "-----> Updating environment variables"
-PROFILE_PATH="$1/.profile.d/imagemagick.sh"
-ACTUAL_INSTALL_PATH="$HOME/vendor/imagemagick/usr/local"
-mkdir -p $(dirname $PROFILE_PATH)
-echo "export PATH=$ACTUAL_INSTALL_PATH/bin:\$PATH" >> $PROFILE_PATH
-echo "export LD_LIBRARY_PATH=$ACTUAL_INSTALL_PATH/lib::\$LD_LIBRARY_PATH:/usr/local/lib" >> $PROFILE_PATH
-echo "export MAGICK_CONFIGURE_PATH=$ACTUAL_INSTALL_PATH" >> $PROFILE_PATH
-export PATH=/app/vendor/imagemagick/usr/local/bin:$PATH
-# ldconfig "$1/vendor/imagemagick/bin/usr/local/lib"
+# cp -f bin/imagemagick-7-0-9-21-binary-archive.tar.gz "$1/vendor/imagemagick/imagemagick-7-0-9-21-binary-archive.tar.gz"
 # cd "$1/vendor/imagemagick"
-# apt-get update
-# apt-get install build-essential autoconf libtool git-core
-# apt-get build-dep imagemagick libmagickcore-dev libde265 libheif
-# cd /usr/src/
-# git clone https://github.com/strukturag/libde265.git
-# git clone https://github.com/strukturag/libheif.git
-# cd libde265/
-# ./autogen.sh
-# ./configure
-# make && make install
-# cd /usr/src/libheif/
-# ./autogen.sh
-# ./configure
-# make && make install
-# cd /usr/src/
-# wget https://www.imagemagick.org/download/ImageMagick.tar.gz
-# tar xf ImageMagick.tar.gz
-# cd ImageMagick-7*
-# ./configure --with-heic=yes --without-gvc
-# make && make install
-# ldconfig app/vendor/imagemagick/bin/usr/local/lib
+# tar -xzvf imagemagick-7-0-9-21-binary-archive.tar.gz
+# # update PATH and LD_LIBRARY_PATH
+# echo "-----> Updating environment variables"
+# PROFILE_PATH="$1/.profile.d/imagemagick.sh"
+# ACTUAL_INSTALL_PATH="$HOME/vendor/imagemagick/usr/local"
+# mkdir -p $(dirname $PROFILE_PATH)
+# echo "export PATH=$ACTUAL_INSTALL_PATH/bin:\$PATH" >> $PROFILE_PATH
+# echo "export LD_LIBRARY_PATH=$ACTUAL_INSTALL_PATH/lib::\$LD_LIBRARY_PATH::/usr/local/lib" >> $PROFILE_PATH
+# echo "export MAGICK_CONFIGURE_PATH=$ACTUAL_INSTALL_PATH" >> $PROFILE_PATH
 # export PATH=/app/vendor/imagemagick/usr/local/bin:$PATH
+# ldconfig "$1/vendor/imagemagick/bin/usr/local/lib"
+cd "$1/vendor/imagemagick"
+apt-get update
+apt-get install build-essential autoconf libtool git-core
+apt-get build-dep imagemagick libmagickcore-dev libde265 libheif
+cd /usr/src/
+git clone https://github.com/strukturag/libde265.git
+git clone https://github.com/strukturag/libheif.git
+cd libde265/
+./autogen.sh
+./configure
+make && make install
+cd /usr/src/libheif/
+./autogen.sh
+./configure
+make && make install
+cd /usr/src/
+wget https://www.imagemagick.org/download/ImageMagick.tar.gz
+tar xf ImageMagick.tar.gz
+cd ImageMagick-7*
+./configure --with-heic=yes --without-gvc
+make && make install
+ldconfig app/vendor/imagemagick/bin/usr/local/lib
+export PATH=/app/vendor/imagemagick/usr/local/bin:$PATH
 
 # # $ lsb_release -a
 # # No LSB modules are available.
